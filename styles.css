@@ -1,5 +1,28 @@
+html {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+    margin: 0;
+  }
+
+#gridWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
+}
+
 #gridContainer {
+    box-sizing: content-box;
     display: grid;
-    height: 800px;
-    width: 800px;
+    height: 400px;
+    width: 400px;
+    border-style: solid;
+}
+
+.filled {
+    background-color: black;
 }
