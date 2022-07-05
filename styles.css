@@ -1,26 +1,60 @@
 html {
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
-  }
+}
   *, *:before, *:after {
     box-sizing: inherit;
     margin: 0;
-  }
+}
 
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+h1 {
+    display: flex;
+    font-size: 50px;
+    justify-content: center;
+    align-items: center;
+    padding: 18px;
+    background-color: #646E78;
+    color: white;
+}
+
+#gridAndButtons {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* weird way to center the grid box, but I'm not sure how else to do it so this will work for. I just offset the grid by how much the button container is taking */
 #gridWrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    
+    margin-right: 297px;
 }
+
 
 #gridContainer {
     box-sizing: content-box;
     display: grid;
-    height: 400px;
-    width: 400px;
+    height: 600px;
+    width: 600px;
     border-style: solid;
+    background-color: white;
+}
+
+#buttons {
+    border-style: solid;
+    width: 250px;
+    height: 404px;
+    background-color: white;
+    margin-right: 50px;
 }
 
 .filled {
