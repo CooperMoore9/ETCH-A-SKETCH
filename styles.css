@@ -50,11 +50,17 @@ h1 {
 }
 
 #buttons {
+    display: flex;
+    justify-content: center;
     border-style: solid;
     width: 250px;
     height: 404px;
     background-color: white;
     margin-right: 50px;
+}
+
+#slider {
+    width: 80%;
 }
 
 .filled {

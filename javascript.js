@@ -1,4 +1,4 @@
-let input = 8;
+let input = 4;
 const container = document.getElementById('gridContainer');
 container.style.gridTemplateColumns = `repeat(${input}, 1fr)`;
 
