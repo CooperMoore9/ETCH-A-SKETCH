@@ -19,14 +19,19 @@ const slider = document.getElementById('slider');
 //     })
 // })
 
-slider.oninput = function(){
+slider.onchange = function(){
+    let input = slider.value;
+    
+    sliderChange(input);
+}
+
+function sliderChange(input) {
+    container.style.gridTemplateColumns = `repeat(${input}, 1fr)`;
+
     const deleteTheBoxes = document.querySelectorAll('.box');
     deleteTheBoxes.forEach((div) => {
         div.remove();
     })
- 
-    let input = slider.value;
-container.style.gridTemplateColumns = `repeat(${input}, 1fr)`;
 
 for(let i = 0; i < input * input; i++){
     const gridBox = document.createElement('div');
@@ -40,6 +45,5 @@ hoverOverBox.forEach((div) => {
         div.classList.add("filled");
     })
 })
-
 
 }
