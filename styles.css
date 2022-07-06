@@ -51,7 +51,9 @@ h1 {
 
 #buttons {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     border-style: solid;
     width: 250px;
     height: 404px;
@@ -59,9 +61,19 @@ h1 {
     margin-right: 50px;
 }
 
+#sliderWrapper {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+  }
+
 #slider {
     width: 80%;
 }
+
 
 .filled {
     background-color: black;
