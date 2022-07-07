@@ -1,12 +1,23 @@
 const container = document.getElementById('gridContainer');
 const slider = document.getElementById('slider');
+const drawButton = document.getElementById('draw');
+const eraseButton = document.getElementById('erase');
+let lastButtonClicked = '';
 
 input = slider.value
 sliderChange(input);
+drawFilled();
 
 slider.onchange = function(){
     let input = slider.value;
     sliderChange(input);
+    drawFilled()
+
+    if(lastButtonClicked === 'draw'){
+        drawFilled();
+    }else if(lastButtonClicked === 'erase'){
+        erase();
+    }
 }
 
 // For updating the div thats gonna show what input value is in real time
@@ -23,6 +34,7 @@ const clearButton = document.getElementById('clear');
         })
     })
 
+    
 
 function sliderChange(input) {
     container.style.gridTemplateColumns = `repeat(${input}, 1fr)`;
@@ -38,14 +50,32 @@ for(let i = 0; i < input * input; i++){
     container.appendChild(gridBox);
 }
 
-const hoverOverBox = document.querySelectorAll('.box');
-hoverOverBox.forEach((div) => {
-    div.addEventListener('mouseover', () => {
-        div.classList.add("filled");
-    })
-})
-
 }
 
+drawButton.addEventListener('click', () =>{
+    lastButtonClicked = 'draw';
+    drawFilled();
+})
 
+eraseButton.addEventListener('click', () =>{
+    lastButtonClicked = 'erase';
+    erase();
+})
 
+function drawFilled() {
+    const hoverOverBox = document.querySelectorAll('.box');
+    hoverOverBox.forEach((div) => {
+        div.addEventListener('mouseover', () => {
+            div.classList.add("filled");
+        })
+    })
+}
+
+function erase() {
+    const hoverOverBox = document.querySelectorAll('.box');
+    hoverOverBox.forEach((div) => {
+        div.addEventListener('mouseover', () => {
+            div.classList.remove("filled");
+        })
+    })
+}
