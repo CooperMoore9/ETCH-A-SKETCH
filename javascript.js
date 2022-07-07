@@ -34,6 +34,7 @@ const clearButton = document.getElementById('clear');
         clearBoxes.forEach((div) => {
             div.classList.remove('filled');
             div.classList.remove('rainbow');
+            div.style.backgroundColor = '';
         })
     })
 
@@ -73,6 +74,7 @@ function drawFilled() {
         div.addEventListener('mouseover', () => {
             div.classList.add('filled');
             div.classList.remove('rainbow')
+            div.style.backgroundColor = '';
         })
     })
 }
@@ -83,6 +85,7 @@ function erase() {
         div.addEventListener('mouseover', () => {
             div.classList.remove("filled");
             div.classList.remove('rainbow');
+            div.style.backgroundColor = '';
         })
     })
 }
@@ -92,11 +95,12 @@ function rainbow() {
     hoverOverBox.forEach((div) => {
         div.addEventListener('mouseover', () => {
             div.classList.add('rainbow');
-            div.style.backgroundColor = pastelColors();;
+            div.style.backgroundColor = pastelColors();
             div.classList.remove('filled');
         })
     })
 }
+
 //got this from @crowe7 who got it from stackoverflow. He told me to take this
 function pastelColors(){
     let r = (Math.round(Math.random()* 127) + 127).toString(16);
