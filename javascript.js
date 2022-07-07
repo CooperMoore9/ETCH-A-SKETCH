@@ -2,6 +2,7 @@ const container = document.getElementById('gridContainer');
 const slider = document.getElementById('slider');
 const drawButton = document.getElementById('draw');
 const eraseButton = document.getElementById('erase');
+const rainbowButton = document.getElementById('rainbow');
 let lastButtonClicked = '';
 
 input = slider.value
@@ -11,12 +12,13 @@ drawFilled();
 slider.onchange = function(){
     let input = slider.value;
     sliderChange(input);
-    drawFilled()
 
     if(lastButtonClicked === 'draw'){
         drawFilled();
-    }else if(lastButtonClicked === 'erase'){
-        erase();
+    }else if(lastButtonClicked === 'rainbow'){
+        rainbow();
+    }else{
+        drawFilled();
     }
 }
 
@@ -31,10 +33,9 @@ const clearButton = document.getElementById('clear');
         const clearBoxes = document.querySelectorAll('.box');
         clearBoxes.forEach((div) => {
             div.classList.remove('filled');
+            div.classList.remove('rainbow');
         })
     })
-
-    
 
 function sliderChange(input) {
     container.style.gridTemplateColumns = `repeat(${input}, 1fr)`;
@@ -58,15 +59,20 @@ drawButton.addEventListener('click', () =>{
 })
 
 eraseButton.addEventListener('click', () =>{
-    lastButtonClicked = 'erase';
     erase();
+})
+
+rainbowButton.addEventListener('click', () =>{
+    lastButtonClicked = 'rainbow';
+    rainbow();
 })
 
 function drawFilled() {
     const hoverOverBox = document.querySelectorAll('.box');
     hoverOverBox.forEach((div) => {
         div.addEventListener('mouseover', () => {
-            div.classList.add("filled");
+            div.classList.add('filled');
+            div.classList.remove('rainbow')
         })
     })
 }
@@ -76,6 +82,25 @@ function erase() {
     hoverOverBox.forEach((div) => {
         div.addEventListener('mouseover', () => {
             div.classList.remove("filled");
+            div.classList.remove('rainbow');
         })
     })
+}
+
+function rainbow() {
+    const hoverOverBox = document.querySelectorAll('.box');
+    hoverOverBox.forEach((div) => {
+        div.addEventListener('mouseover', () => {
+            div.classList.add('rainbow');
+            div.style.backgroundColor = pastelColors();;
+            div.classList.remove('filled');
+        })
+    })
+}
+//got this from @crowe7 who got it from stackoverflow. He told me to take this
+function pastelColors(){
+    let r = (Math.round(Math.random()* 127) + 127).toString(16);
+    let g = (Math.round(Math.random()* 127) + 127).toString(16);
+    let b = (Math.round(Math.random()* 127) + 127).toString(16);
+    return '#' + r + g + b;
 }
