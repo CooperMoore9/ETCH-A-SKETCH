@@ -57,8 +57,19 @@ h1 {
     border-style: solid;
     width: 250px;
     height: 404px;
+    gap: 12px;
     background-color: white;
     margin-right: 50px;
+}
+
+button {
+    font-size: 30px;
+    width: 80%;
+    height: 15%;
+}
+
+#userRange {
+    font-size: 30px;
 }
 
 #sliderWrapper {
@@ -67,12 +78,39 @@ h1 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 4px;
+    gap: 10px;
   }
 
 #slider {
+    -webkit-appearance: none;
     width: 80%;
+    height: 15px;
+    border-radius: 5px;  
+    background: #b2b2b2;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+
 }
+
+#slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%; 
+    background: #495158;
+    cursor: pointer;
+  }
+
+  slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #04AA6D;
+    cursor: pointer;
+  }
 
 
 .filled {

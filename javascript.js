@@ -15,6 +15,15 @@ slider.oninput = function(input){
     document.getElementById('userRange').textContent = `${input} x ${input}`;
 }
 
+const clearButton = document.getElementById('clear');
+    clearButton.addEventListener('click', () =>{
+        const clearBoxes = document.querySelectorAll('.box');
+        clearBoxes.forEach((div) => {
+            div.classList.remove('filled');
+        })
+    })
+
+
 function sliderChange(input) {
     container.style.gridTemplateColumns = `repeat(${input}, 1fr)`;
 
@@ -38,11 +47,5 @@ hoverOverBox.forEach((div) => {
 
 }
 
-const clearButton = document.getElementById('clear');
-    clearButton.addEventListener('click', () =>{
-        const clearBoxes = document.querySelectorAll('.box');
-        clearBoxes.forEach((div) => {
-            div.classList.remove('filled');
-        })
-    })
+
 
